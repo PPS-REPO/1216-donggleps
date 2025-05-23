@@ -2,7 +2,7 @@
     "problem_title": "아무래도이도형은삼각형을만족하지않아",
     "problem_type": "stdio",
     "checker": "tcmp.cc",
-    "checker_language": "cpp11",
+    "checker_language": "cpp17",
     "validator": "validator.cc",
     "validator_language": "cpp17",
     "subtask": false,
