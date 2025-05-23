@@ -6,7 +6,7 @@ int main() {
     cin >> a >> b >> c;
     
     if (a + b > c && a + c > b && b + c > a)
-        cout << "YESAMGHAKHYUNG" << endl;
+        cout << "YESAMGHAKHYUNG";
     else
-        cout << "NOSAMGAKHYUK" << endl;
+        cout << "NOSAMGAKHYUK";
 }
