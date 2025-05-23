@@ -49,6 +49,11 @@
             "name": "generator.cc",
             "language": "cpp17",
             "alias": "random_cc"
+        },
+        {
+            "name": "generator_manual.py",
+            "language": "pypy3",
+            "alias": "manual"
         }
     ],
     "subtask_group": [
