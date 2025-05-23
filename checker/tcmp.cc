@@ -1,36 +1,20 @@
 #include "testlib.h"
-#include <iostream>
-#include <string>
-
 using namespace std;
 
-int main(int argc, char* argv[]) {
-    registerChecker(argc, argv);
+int main(int argc, char** argv) {
+    registerTestlibCmd(argc, argv);
 
-    int a = inf.readInt(1, 1000000000);
-    int b = inf.readInt(1, 1000000000);
-    int c = inf.readInt(1, 1000000000);
-    inf.readEoln();
-    inf.readEof();
+    string expected = ans.readWord();
+    string actual = ouf.readWord();
 
-    string ans = ansf.readLine();
-    string ouf = ouf.readLine();
+    if (actual != "YESAMGHAKHYUNG" && actual != "NOSAMGAKHYUK")
+        quitf(_wa, "Output must be either 'YESAMGHAKHYUNG' or 'NOSAMGAKHYUK', found: '%s'", compress(actual).c_str());
 
-    if (!ouf.empty() && ouf.back() == '\r') {
-        ouf.pop_back();
-    }
+    if (actual != expected)
+        quitf(_wa, "Wrong answer - expected: '%s', found: '%s'", compress(expected).c_str(), compress(actual).c_str());
 
-    if (!ouf.eof()) {
-        quitf(_wa, "Extra output detected");
-    }
+    if (!ouf.seekEof())
+        quitf(_wa, "Extra output found after the answer: '%s'", compress(ouf.readWord()).c_str());
 
-    bool canForm = ((long long)a + b > c) && ((long long)a + c > b) && ((long long)b + c > a);
-
-    string correct = canForm ? "YESAMGHAKHYUNG" : "NOSAMGAKHYUK";
-
-    if (ouf != correct) {
-        quitf(_wa, "Expected \"%s\", but found \"%s\"", correct.c_str(), ouf.c_str());
-    }
-
-    quitf(_ok, "Correct output");
+    quitf(_ok, "Correct: \"%s\"", compress(actual).c_str());
 }
