@@ -14,15 +14,16 @@ int main(int argc, char* argv[]) {
     int b = rnd.next(MIN_VAL, MAX_VAL);
     int c;
 
+    long long sum = (long long)a + (long long)b;
+
     if (canFormTriangle) {
-        long long sum = (long long)a + (long long)b;
         int upperBound = (sum - 1 <= MAX_VAL) ? (int)(sum - 1) : MAX_VAL;
         c = rnd.next(MIN_VAL, upperBound);
     } else {
-        long long sum = (long long)a + (long long)b;
         if (sum > MAX_VAL) {
             c = rnd.next(MIN_VAL, MAX_VAL);
         } else {
+            // c >= a+b
             c = rnd.next((int)sum, MAX_VAL);
         }
     }
