@@ -1,16 +1,20 @@
 # Problem
 
-You are given two integers $a$ and $b$.
+Sungwon is an 18-year-old who is deeply interested in triangles. (18 years old is still a youth, right? 😄)  
+In order for three lengths to form a triangle, they must satisfy **all** of the following conditions:
 
-Print $a + b$.
+- `a + b > c`
+- `a + c > b`
+- `b + c > a`
+
+Given three integers `a`, `b`, and `c`, determine whether these lengths can form a triangle.
 
 # Input
 
-The first line of input contains two integers $a$ and $b$ separated by a space.
+The first line contains three integers `a`, `b`, and `c`.
 
-* $1 \le a \le 9$
-* $1 \le b \le 9$
+* ($1 ≤ a, b, c ≤ 10^9$)
 
 # Output
 
-Print $a + b$ on the first line of output.
+If the given lengths satisfy the triangle conditions, print "YESAMGHAKHYUNG". Otherwise, print "NOSAMGAKHYUK"
