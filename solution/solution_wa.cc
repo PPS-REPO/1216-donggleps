@@ -1,8 +1,12 @@
-#include <cstdio>
+#include <iostream>
+using namespace std;
 
 int main() {
-    int a, b;
-    scanf("%d%d", &a, &b);
-    printf("%d\n", a + b + 1);
-    return 0;
+    long long a, b, c;
+    cin >> a >> b >> c;
+    
+    if (a + c > c && a + c > b && b + c > a)
+        cout << "YESAMGHAKHYUNG" << endl;
+    else
+        cout << "NOSAMGAKHYUK" << endl;
 }
