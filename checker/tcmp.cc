@@ -1,5 +1,6 @@
 #include "testlib.h"
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -12,12 +13,13 @@ int main(int argc, char* argv[]) {
     inf.readEoln();
     inf.readEof();
 
-    // string ans = ansf.readLine();
-
     string ouf_line = ouf.readLine();
 
     if (!ouf.eof()) {
-        quitf(_wa, "Extra output detected");
+        string extra_line = ouf.readLine();
+        if (!extra_line.empty() || !ouf.eof()) {
+            quitf(_wa, "Extra output detected");
+        }
     }
 
     bool canForm = ( (long long)a + b > c ) && ( (long long)a + c > b ) && ( (long long)b + c > a );
