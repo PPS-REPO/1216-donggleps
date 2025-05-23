@@ -8,7 +8,7 @@
     "subtask": false,
     "limits": {
         "time": 1000,
-        "memory": 536870912,
+        "memory": 268435456,
         "factor": {
             "py3": {
                 "time": 0,
