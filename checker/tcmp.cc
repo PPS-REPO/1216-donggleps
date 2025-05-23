@@ -1,29 +1,29 @@
 #include "testlib.h"
- 
+#include <iostream>
+
 using namespace std;
- 
-int main(int argc, char** argv) {
-    setName("token compare");
-    registerTestlibCmd(argc, argv);
- 
-    int n = 0;
-    string j, p;
- 
-    for (; !ans.seekEof() && !ouf.seekEof(); ) {
-        ++n;
- 
-        ans.readWordTo(j);
-        ouf.readWordTo(p);
-        
-        if (j != p) quitf(_wa, "%d%s words differ - expected: '%s', found: '%s'", n, englishEnding(n).c_str(), compress(j).c_str(), compress(p).c_str());
+
+int main(int argc, char* argv[]) {
+    registerChecker(argc, argv);
+
+    int a = inf.readInt(1, 1000000000);
+    int b = inf.readInt(1, 1000000000);
+    int c = inf.readInt(1, 1000000000);
+    inf.readEoln();
+    inf.readEof();
+
+    string ans = ansf.readLine();
+    string ouf = ouf.readLine();
+
+    if (!ouf.eof()) quitf(_wa, "Extra output detected");
+
+    bool canForm = ( (long long)a + b > c ) && ( (long long)a + c > b ) && ( (long long)b + c > a );
+
+    string correct = canForm ? "YESAMGHAKHYUNG" : "NOSAMGAKHYUK";
+
+    if (ouf != correct) {
+        quitf(_wa, "Expected \"%s\", but found \"%s\"", correct.c_str(), ouf.c_str());
     }
- 
-    if (ans.seekEof() && ouf.seekEof()) {
-        if (n == 1) quitf(_ok, "\"%s\"", compress(j).c_str());
-        else quitf(_ok, "%d tokens", n);
-    }
-    else {
-        if (ans.seekEof()) quitf(_wa, "Participant output contains extra tokens");
-        else quitf(_wa, "Unexpected EOF in the participants output");
-    }
+
+    quitf(_ok, "Correct output");
 }
