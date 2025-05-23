@@ -51,7 +51,26 @@
             "alias": "random_cc"
         }
     ],
-    "subtask_group": [],
+    "subtask_group": [
+        {
+            "name": "10%",
+            "description": "",
+            "score": 10,
+            "dependencies": []
+        },
+        {
+            "name": "50%",
+            "description": "",
+            "score": 57,
+            "dependencies": []
+        },
+        {
+            "name": "40%",
+            "description": "",
+            "score": 33,
+            "dependencies": []
+        }
+    ],
     "genscript": [
         {
             "script": "manual 1",
