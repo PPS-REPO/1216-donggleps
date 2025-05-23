@@ -12,17 +12,20 @@ int main(int argc, char* argv[]) {
     inf.readEoln();
     inf.readEof();
 
-    string ans = ansf.readLine();
-    string ouf = ouf.readLine();
+    // string ans = ansf.readLine();
 
-    if (!ouf.eof()) quitf(_wa, "Extra output detected");
+    string ouf_line = ouf.readLine();
+
+    if (!ouf.eof()) {
+        quitf(_wa, "Extra output detected");
+    }
 
     bool canForm = ( (long long)a + b > c ) && ( (long long)a + c > b ) && ( (long long)b + c > a );
 
     string correct = canForm ? "YESAMGHAKHYUNG" : "NOSAMGAKHYUK";
 
-    if (ouf != correct) {
-        quitf(_wa, "Expected \"%s\", but found \"%s\"", correct.c_str(), ouf.c_str());
+    if (ouf_line != correct) {
+        quitf(_wa, "Expected \"%s\", but found \"%s\"", correct.c_str(), ouf_line.c_str());
     }
 
     quitf(_ok, "Correct output");
