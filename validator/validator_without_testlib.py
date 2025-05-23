@@ -1,7 +1,13 @@
 import sys
+
 inp = sys.stdin.read()
-assert len(inp) == 4, 'Input must be 4 characters long'
-assert inp[1] == ' ', 'Input must contain a space'
-assert inp[0] in '123456789', 'First character must be a digit'
-assert inp[2] in '123456789', 'Third character must be a digit'
-assert inp[3] == '\n', 'Input must end with a newline'
+lines = inp.splitlines()
+assert len(lines) == 1, 'Input must be a single line'
+
+parts = lines[0].split()
+assert len(parts) == 3, 'Input must contain exactly three values separated by spaces'
+
+for i, part in enumerate(parts):
+    assert part.isdigit(), f'Value {i+1} is not a valid integer'
+    value = int(part)
+    assert 1 <= value <= 10**9, f'Value {i+1} is out of bounds (1 ≤ value ≤ 10^9)'
